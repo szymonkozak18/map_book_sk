@@ -3,7 +3,7 @@ def gets_user_info(users_data: list) -> None:
         print(f'twój znajomy {user['name']} z miejscowości {user["location"]} opublikował {user["posts"]} postów')
 
 
-def add_user(users_data: str) -> None:
+def add_user(users_data: list) -> None:
     new_name: str = input('podaj imię nowego znajomego: ')
     new_location: str = input('podaj lokalizację: ')
     new_posts: str = input('podaj liczbę postów: ')
