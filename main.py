@@ -69,6 +69,8 @@ def edit_user():
     entry_locaction.insert(0, location)
     entry_post.insert(0, post)
 
+    button_dodaj_obiekt.config(text='zapisz', command=lambda: update_user(i))
+
 
 def update_user(i):
     new_name = entry_name.get()
@@ -90,6 +92,9 @@ def update_user(i):
     entry_locaction.delete(0, END)
     entry_post.delete(0, END)
     entry_name.focus()
+
+    button_dodaj_obiekt.config(text='Dodaj uzytkownika', command=add_user)
+    show_users()
 
 
 def show_user_details():
@@ -125,7 +130,12 @@ label_lista_obiektow = Label(ramka_lista_obiektow, text="lista użytkowników")
 label_lista_obiektow.grid(row=0, column=0)
 listbox_lista_obiektow = Listbox(ramka_lista_obiektow, width=50, height=10)
 listbox_lista_obiektow.grid(row=1, column=0, columnspan=3)
-
+button_pokaz_szczegoly_obiektu = Button(ramka_lista_obiektow, text="Pokaż szczegóły", command=show_user_details)
+button_pokaz_szczegoly_obiektu.grid(row=2, column=0)
+button_usun_obiekt = Button(ramka_lista_obiektow, text="Usuń użytkownika", command=remove_user)
+button_usun_obiekt.grid(row=2, column=1)
+button_edytuj_obiekt = Button(ramka_lista_obiektow, text="Edytuj użytkownika", command=edit_user)
+button_edytuj_obiekt.grid(row=2, column=2)
 
 # ramka_formularz
 label_formularz = Label(ramka_formularz, text="Formularz")
@@ -148,7 +158,8 @@ entry_locaction.grid(row=3, column=1)
 entry_post = Entry(ramka_formularz)
 entry_post.grid(row=4, column=1)
 
-
+button_dodaj_obiekt = Button(ramka_formularz, text="Dodaj użytkownika", command=add_user)
+button_dodaj_obiekt.grid(row=5, column=0, columnspan=2)
 
 # ramka_szczegoly_obiektu
 label_szczegoly_obiektow = Label(ramka_szczegoly_obiektow, text="Szczegóły obiektu")
